@@ -1,24 +1,8 @@
-# README
+# Render.com Ruby on Rails template
+This template is for render.com free plan
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Local application setup
+Take care of secrets.
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Problems
