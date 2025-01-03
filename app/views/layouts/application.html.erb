@@ -20,6 +20,8 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
@@ -40,7 +42,7 @@
         <!-- cursor end -->
 
         <!-- preloader -->
-        <!-- 
+        
         <div class="mil-preloader">
             <div class="mil-preloader-animation">
                 <div class="mil-pos-abs mil-animation-1">
@@ -56,7 +58,7 @@
                 </div>
             </div>
         </div>
-        --!>
+        
         <!-- preloader end -->
 
         <!-- scrollbar progress -->
@@ -875,7 +877,7 @@
     <!-- wrapper end -->
     <%= yield %>
   </body>
-  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
+  
 
 </html>
 
