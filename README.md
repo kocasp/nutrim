@@ -1,8 +1,5 @@
-# Render.com Ruby on Rails template
+# Nutrin
 This template is for render.com free plan
-
-## Local application setup
-Take care of secrets.
-
-
-## Problems
+ # How to run
+ `bin/dev` in one terminal
+ `rails s` in another terminal to enable `binding.pry`
