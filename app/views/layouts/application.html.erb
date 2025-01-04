@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Render Template" %></title>
+    <title><%= content_for(:title) || "Nutrim" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -21,6 +21,7 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
@@ -84,44 +85,38 @@
 
                             <nav class="mil-main-menu" id="swupMenu">
                                 <ul>
-                                    <li class="mil-has-children mil-active">
-                                        <a href="#.">Homepage</a>
-                                        <ul>
-                                            <li><a href="home-1.html">Landing page</a></li>
-                                            <li><a href="home-2.html">Personal</a></li>
-                                            <li><a href="portfolio-3.html">Portfolio slider</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mil-has-children">
-                                        <a href="#.">Portfolio</a>
-                                        <ul>
-                                            <li><a href="portfolio-1.html">Grid type 1</a></li>
-                                            <li><a href="portfolio-2.html">Grid type 2</a></li>
-                                            <li><a href="portfolio-3.html">Slider</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mil-has-children">
-                                        <a href="#.">Services</a>
-                                        <ul>
-                                            <li><a href="services.html">Services List</a></li>
-                                            <li><a href="service.html">Single service</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mil-has-children">
-                                        <a href="#.">Newsletter</a>
-                                        <ul>
-                                            <li><a href="blog.html">Blog List</a></li>
-                                            <li><a href="publication.html">Publication</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mil-has-children">
-                                        <a href="#.">Other pages</a>
-                                        <ul>
-                                            <li><a href="team.html">Team</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="404.html">404</a></li>
-                                        </ul>
-                                    </li>
+                                <li class="mil-has-children mil-active">
+                                    <a href="#.">Home</a>
+                                    <ul>
+                                        <li><a href="home-1.html">Strona główna</a></li>
+                                        <li><a href="home-2.html">Personalna</a></li>
+                                        <li><a href="portfolio-3.html">Portfolio slider</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mil-has-children">
+                                    <a href="#.">API</a>
+                                    <ul>
+                                        <li><a href="portfolio-1.html">Siatka typ 1</a></li>
+                                        <li><a href="portfolio-2.html">Siatka typ 2</a></li>
+                                        <li><a href="portfolio-3.html">Suwak</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mil-has-children">
+                                    <a href="#.">Kontakt</a>
+                                    <ul>
+                                        <li><a href="blog.html">Lista blogów</a></li>
+                                        <li><a href="publication.html">Publikacja</a></li>
+                                    </ul>
+                                </li>
+                                <li class="mil-has-children">
+                                    <a href="#.">Artykuły</a>
+                                    <ul>
+                                        <li><a href="team.html">Zespół</a></li>
+                                        <li><a href="contact.html">Kontakt</a></li>
+                                        <li><a href="404.html">Błąd 404</a></li>
+                                    </ul>
+                                </li>
+                            
                                 </ul>
                             </nav>
 
@@ -207,7 +202,7 @@
                 <div class="mil-current-page"></div>
                 <div class="mil-back-to-top">
                     <a href="#top" class="mil-link mil-dark mil-arrow-place">
-                        <span>Back to top</span>
+                        <span>Do góry</span>
                     </a>
                 </div>
             </div>
@@ -381,6 +376,7 @@
                 <!-- services end -->
 
                 <!-- team -->
+                <!--
                 <section>
                     <div class="container mil-p-120-30">
                         <div class="row justify-content-between align-items-center">
@@ -484,9 +480,11 @@
                         </div>
                     </div>
                 </section>
+                -->
                 <!-- team end -->
 
                 <!-- reviews -->
+                <!--
                 <section class="mil-soft-bg">
                     <div class="container mil-p-120-120">
 
@@ -573,9 +571,11 @@
 
                     </div>
                 </section>
+                -->
                 <!-- reviews end -->
 
                 <!-- partners -->
+                <!--
                 <div class="mil-soft-bg">
                     <div class="container mil-p-0-120">
 
@@ -598,6 +598,7 @@
 
                     </div>
                 </div>
+                -->
                 <!-- partners end -->
 
                 <!-- blog -->
@@ -605,12 +606,12 @@
                     <div class="container mil-p-120-60">
                         <div class="row align-items-center mil-mb-30">
                             <div class="col-lg-6 mil-mb-30">
-                                <h3 class="mil-up">Popular Publications:</h3>
+                                <h3 class="mil-up">Ostatnie artykuły:</h3>
                             </div>
                             <div class="col-lg-6 mil-mb-30">
                                 <div class="mil-adaptive-right mil-up">
                                     <a href="blog.html" class="mil-link mil-dark mil-arrow-place">
-                                        <span>View all</span>
+                                        <span>Pokaż wszystkie</span>
                                     </a>
                                 </div>
                             </div>
@@ -668,14 +669,11 @@
                             <div class="row justify-content-between">
                                 <div class="col-md-4 col-lg-4 mil-mb-60">
 
-                                    <div class="mil-muted mil-logo mil-up mil-mb-30">Ashley.</div>
+                                    <div class="mil-muted mil-logo mil-up mil-mb-30"><%= image_tag 'logo_full.svg', height: "40px", alt: 'Company Logo' %></div>
 
-                                    <p class="mil-light-soft mil-up mil-mb-30">Subscribe our newsletter:</p>
+                                    <h6 class="mil-muted mil-up mil-mb-30">by Devlast</h6>
 
-                                    <form class="mil-subscribe-form mil-up">
-                                        <input type="text" placeholder="Enter our email">
-                                        <button type="submit" class="mil-button mil-icon-button-sm mil-arrow-place"></button>
-                                    </form>
+                                    <p class="mil-light-soft mil-up">Czyżówka 14/lok. 1.6,<br> 30-526 Kraków</p>
 
                                 </div>
                                 <div class="col-md-7 col-lg-6">
@@ -688,16 +686,13 @@
                                                         <a href="home-1.html">Home</a>
                                                     </li>
                                                     <li class="mil-up">
-                                                        <a href="portfolio-1.html">Portfolio</a>
+                                                        <a href="portfolio-1.html">API</a>
                                                     </li>
                                                     <li class="mil-up">
-                                                        <a href="services.html">Services</a>
+                                                        <a href="services.html">Kontakt</a>
                                                     </li>
                                                     <li class="mil-up">
-                                                        <a href="contact.html">Contact</a>
-                                                    </li>
-                                                    <li class="mil-up">
-                                                        <a href="blog.html">Blog</a>
+                                                        <a href="contact.html">Artykuły</a>
                                                     </li>
                                                 </ul>
                                             </nav>
@@ -706,10 +701,10 @@
                                         <div class="col-md-6 col-lg-5">
 
                                             <ul class="mil-menu-list mil-up mil-mb-60">
-                                                <li><a href="#." class="mil-light-soft">Privacy Policy</a></li>
-                                                <li><a href="#." class="mil-light-soft">Terms and conditions</a></li>
-                                                <li><a href="#." class="mil-light-soft">Cookie Policy</a></li>
-                                                <li><a href="#." class="mil-light-soft">Careers</a></li>
+                                                <li><a href="#." class="mil-light-soft">Polityka Prywatności</a></li>
+                                                <li><a href="#." class="mil-light-soft">Warunki użytkowania</a></li>
+                                                <li><a href="#." class="mil-light-soft">Polityka Cookies</a></li>
+
                                             </ul>
 
                                         </div>
@@ -719,38 +714,9 @@
 
                             <div class="row justify-content-between flex-sm-row-reverse">
                                 <div class="col-md-7 col-lg-6">
-
-                                    <div class="row justify-content-between">
-
-                                        <div class="col-md-6 col-lg-5 mil-mb-60">
-
-                                            <h6 class="mil-muted mil-up mil-mb-30">Canada</h6>
-
-                                            <p class="mil-light-soft mil-up">71 South Los Carneros Road, California <span class="mil-no-wrap">+51 174 705 812</span></p>
-
-                                        </div>
-                                        <div class="col-md-6 col-lg-5 mil-mb-60">
-
-                                            <h6 class="mil-muted mil-up mil-mb-30">Germany</h6>
-
-                                            <p class="mil-light-soft mil-up">Leehove 40, 2678 MC De Lier, Netherlands <span class="mil-no-wrap">+31 174 705 811</span></p>
-
-                                        </div>
-                                    </div>
-
                                 </div>
                                 <div class="col-md-4 col-lg-6 mil-mb-60">
-
-                                    <div class="mil-vert-between">
-                                        <div class="mil-mb-30">
-                                            <ul class="mil-social-icons mil-up">
-                                                <li><a href="#." target="_blank" class="social-icon"> <i class="far fa-circle"></i></a></li>
-                                                <li><a href="#." target="_blank" class="social-icon"> <i class="far fa-circle"></i></a></li>
-                                                <li><a href="#." target="_blank" class="social-icon"> <i class="far fa-circle"></i></a></li>
-                                                <li><a href="#." target="_blank" class="social-icon"> <i class="far fa-circle"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <p class="mil-light-soft mil-up">© Copyright 2023 - Mil. All Rights Reserved.</p>
+                                        <p class="mil-light-soft mil-up">© Copyright <%= Time.now.year %> - Devlast.com. All Rights Reserved.</p>
                                     </div>
 
                                 </div>
