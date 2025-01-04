@@ -83,7 +83,7 @@ production:
     <<: *default
     database: nutrim_production
     username: nutrim
-    password: <%= ENV["nutrim_DATABASE_PASSWORD"] %>
+    password: <%= ENV["NUTRIM_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: nutrim_production_cache
