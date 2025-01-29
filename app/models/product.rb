@@ -18,7 +18,13 @@ class Product < ApplicationRecord
   def self.ordered_search(query)
     return none if query.blank?
 
-    search_name(query)
+    start_time = Time.now
+    result = search_name(query)
+    end_time = Time.now
+
+    puts "SEARCH_QUERY: '#{query}' executed in #{(end_time - start_time).round(5)} seconds"
+    
+    result
   end
 
   scope :search, ->(query) { ordered_search(query) }
