@@ -14,22 +14,11 @@ class Product < ApplicationRecord
     },
     ignoring: :accents
 
-  # Enhanced search with ordering
+  # Basic search without custom ordering for performance
   def self.ordered_search(query)
     return none if query.blank?
 
-    safe_query = ActiveRecord::Base.connection.quote_string(query.to_s.strip)
-
     search_name(query)
-      .select(<<-SQL.squish)
-        products.*,
-        CASE
-          WHEN unaccent(products.name) ILIKE unaccent('#{safe_query}') THEN 1
-          WHEN unaccent(products.name) ILIKE unaccent('#{safe_query}%') THEN 2
-          ELSE similarity(unaccent(products.name), unaccent('#{safe_query}'))
-        END AS custom_order
-      SQL
-      .order(Arel.sql("custom_order DESC, similarity(unaccent(products.name), unaccent('#{safe_query}')) DESC"))
   end
 
   scope :search, ->(query) { ordered_search(query) }

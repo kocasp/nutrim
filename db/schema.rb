@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_29_121226) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_29_124011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pg_trgm"
@@ -33,5 +33,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_29_121226) do
     t.datetime "updated_at", null: false
     t.string "source"
     t.string "brand"
+    t.index "to_tsvector('simple'::regconfig, (name)::text)", name: "products_name_gin", using: :gin
   end
 end
