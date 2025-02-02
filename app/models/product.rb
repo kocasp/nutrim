@@ -1,30 +1,23 @@
 class Product < ApplicationRecord
   include PgSearch::Model
 
-  pg_search_scope :search_name,
-    against: :name,
-    using: {
-      tsearch: {
-        dictionary: 'simple',
-        prefix: true
-      },
-      trigram: {
-        threshold: 0.3 # Adjust threshold for similarity matching
-      }
-    },
-    ignoring: :accents
+  before_save :set_unaccented_name
 
-  # Basic search without custom ordering for performance
+  def set_unaccented_name
+    self.unaccented_name = I18n.transliterate(name) if name_changed?
+  end
+
+  pg_search_scope :search_name,
+    against: :unaccented_name,
+    using: {
+      tsearch: { dictionary: 'simple', prefix: true },
+      trigram: { threshold: 0.7 }
+    }
+
   def self.ordered_search(query)
     return none if query.blank?
-
-    start_time = Time.now
-    result = search_name(query)
-    end_time = Time.now
-
-    puts "SEARCH_QUERY: '#{query}' executed in #{(end_time - start_time).round(5)} seconds"
     
-    result
+    search_name(query)
   end
 
   scope :search, ->(query) { ordered_search(query) }
