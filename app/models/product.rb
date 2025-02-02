@@ -14,6 +14,10 @@ class Product < ApplicationRecord
       trigram: { threshold: 0.7 }
     }
 
+  scope :fast_search, ->(query) {
+    where("unaccented_name ILIKE ?", "%#{query}%") if query.present?
+  }
+
   def self.ordered_search(query)
     return none if query.blank?
     
