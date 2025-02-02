@@ -10,8 +10,7 @@ class Product < ApplicationRecord
   pg_search_scope :search_name,
     against: :unaccented_name,
     using: {
-      tsearch: { dictionary: 'simple', prefix: true },
-      trigram: { threshold: 0.7 }
+      tsearch: { dictionary: 'simple', prefix: true }
     }
 
   scope :fast_search, ->(query) {
