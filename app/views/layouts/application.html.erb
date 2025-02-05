@@ -280,10 +280,11 @@
                                     <p class="mil-up mil-mb-60">Przejrzystość to fundament działania Nutrim. Dzięki szczegółowym informacjom o składzie produktów, aplikacja pozwala podejmować świadome decyzje żywieniowe i dostosowywać jadłospis do indywidualnych potrzeb. Szybkość działania i bogata baza danych czynią Nutrim niezastąpionym narzędziem dla każdego, kto dba o zdrowy styl życia.</p>
 
                                     <div class="mil-about-quote">
-                                      <a href="https://apps.apple.com/app/id6740186699" target="_blank">
+                                    <a target="_blank" onclick="event.preventDefault(); window.open('https://apps.apple.com/app/id6740186699', '_blank');" style="cursor: pointer;">
                                         <%= image_tag 'appstore.svg', width: '250px', alt: 'appstore' %>
-                                      </a>
+                                    </a>
                                     </div>
+
                                 </div>
 
                             </div>
@@ -329,7 +330,7 @@
                                 <div class="mil-complex-text justify-content-center mil-up">
 
                                     <h2 class="mil-h1 mil-muted mil-center"><span class="mil-thin">w swojej</span> Aplikacji</h2>
-                                    <a href="services.html" class="mil-services-button mil-button mil-arrow-place"><span>Dokumentacja</span></a>
+                                    <a class="mil-services-button mil-button mil-arrow-place" onclick="event.preventDefault(); window.open('https://docs.nutrim.pl', '_blank');" style="cursor: pointer;"><span>Dokumentacja</span></a>
 
                                 </div>
                             </div>
@@ -605,6 +606,7 @@
                 <!-- partners end -->
 
                 <!-- blog -->
+                <!--
                 <section>
                     <div class="container mil-p-120-60">
                         <div class="row align-items-center mil-mb-30">
@@ -663,6 +665,7 @@
                         </div>
                     </div>
                 </section>
+                -->
                 <!-- blog end -->
 
                 <!-- footer -->
