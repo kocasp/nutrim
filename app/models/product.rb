@@ -2,13 +2,18 @@ class Product < ApplicationRecord
   include PgSearch::Model
 
   before_save :set_unaccented_name
+  before_save :set_unaccented_brand
 
   def set_unaccented_name
     self.unaccented_name = I18n.transliterate(name).downcase if name_changed?
   end
 
+  def set_unaccented_brand
+    self.unaccented_brand = I18n.transliterate(brand).downcase if brand_changed?
+  end
+
   pg_search_scope :pg_search,
-    against: :unaccented_name,
+    against: [:unaccented_name, :unaccented_brand],
     using: {
       tsearch: { dictionary: 'simple', prefix: true }
     }
@@ -43,6 +48,6 @@ class Product < ApplicationRecord
     )
 
     # Fallback to pg_search if no results are found
-    relation.count > 0 ? relation : pg_search(query)
+    relation.count > 1 ? relation : pg_search(query)
   end
 end
