@@ -4,6 +4,17 @@ class Api::V1::ProductsController < ApplicationController
   def index
     no_accent_query = I18n.transliterate(params[:query]).downcase if params[:query].present?
     products = Product.search(no_accent_query).limit(20)
-    render json: products, status: :ok
+    render json: products.as_json(
+      only: [
+        :name, 
+        :kcal,
+        :protein,
+        :carbs,
+        :fat,
+        :fiber,
+        :brand
+      ]
+      ), 
+      status: :ok
   end
 end
