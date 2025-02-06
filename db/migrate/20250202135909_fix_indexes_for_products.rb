@@ -4,7 +4,6 @@ class FixIndexesForProducts < ActiveRecord::Migration[6.0]
     enable_extension 'unaccent'
 
     remove_index :products, name: "products_name_gin"
-    remove_index :products, name: "products_name_trigram_idx"
 
     execute <<-SQL
       CREATE INDEX products_unaccented_name_gin
