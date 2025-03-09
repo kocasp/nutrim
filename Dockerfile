@@ -52,9 +52,18 @@ RUN sh -c 'gem install bundler:2.3.6 && \
 
 COPY . .
 
-# RUN bundle exec rails secret > /tmp/secret_key_base && \
-#     RAILS_ENV=production SECRET_KEY_BASE=$(cat /tmp/secret_key_base) bundle exec rails assets:precompile && \
-#     rm /tmp/secret_key_base
+RUN apt-get remove -y cmdtest && \
+    apt-get update && apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    corepack enable && \
+    corepack prepare yarn@1.22.19 --activate && \
+    yarn --version
+
+
+RUN bundle exec rails secret > /tmp/secret_key_base && \
+    RAILS_ENV=production SECRET_KEY_BASE=$(cat /tmp/secret_key_base) bundle exec rails assets:precompile && \
+    rm /tmp/secret_key_base
 
 FROM base
 
